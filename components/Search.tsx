@@ -1,25 +1,32 @@
-import { Container, Form, Button, Row, Col } from 'react-bootstrap'
-import styled from 'styled-components'
+import { useState } from 'react'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 
-const StyledForm = styled(Form)`
-  margin-top: 2rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  flex-basis: 50%;
-`
+interface ISearch {
+  handleSearch: (searchParam) => void
+}
+
 // TODO: fix up styling
-export const Search: React.FC = () => {
+export const Search: React.FC<ISearch> = ({ handleSearch }) => {
+  const [character, setCharacter] = useState('')
+
+  const handleUpdateState = (e): void => {
+    setCharacter(e.target.value)
+  }
+
+  const handleSubmit = (event): void => {
+    event.preventDefault()
+    handleSearch(character)
+  }
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
-        <Col sm={1}></Col>
-        <Col sm={8}>
+        <Col sm={1} xs={1}></Col>
+        <Col sm={8} xs={4}>
           <Form.Group>
-            <Form.Control />
+            <Form.Control onChange={handleUpdateState} />
           </Form.Group>
         </Col>
-        <Col sm={3}>
+        <Col sm={3} xs={4}>
           <Button variant="primary" type="submit">
             Search
           </Button>
