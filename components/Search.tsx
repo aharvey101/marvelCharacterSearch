@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 
 interface ISearch {
-  handleSearch: (searchParam) => void
+  handleSearch: (searchParam: string) => void
 }
 
 // TODO: fix up styling
@@ -13,7 +13,7 @@ export const Search: React.FC<ISearch> = ({ handleSearch }) => {
     setCharacter(e.target.value)
   }
 
-  const handleSubmit = (event): void => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     handleSearch(character)
   }

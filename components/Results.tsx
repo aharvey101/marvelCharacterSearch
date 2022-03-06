@@ -64,7 +64,7 @@ const CharacterCard: React.FC<ICharacterCard> = ({
             <Card.Title>{name}</Card.Title>
           </Card.Body>
           {showMore ? (
-            <Button onClick={(active) => setShowModal(id)} variant="primary">
+            <Button onClick={() => setShowModal(id)} variant="primary">
               Show More
             </Button>
           ) : null}
@@ -75,7 +75,6 @@ const CharacterCard: React.FC<ICharacterCard> = ({
 }
 
 export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
-  const [showModal, setShowModal] = useState(false)
   const [modalStateArray, setModalStateArray] = useState<IModalState[]>([])
 
   const MyModal: React.FC<ICustomModal> = ({
@@ -114,7 +113,7 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
     }
   }, [characters])
 
-  const handleModal = (id) => {
+  const handleModal = (id: number) => {
     const updatedEntry: IModalState | undefined = modalStateArray.find(
       (modalState) => modalState.id === id
     )
@@ -124,7 +123,7 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
     }
   }
 
-  const getModalState = (id) => {
+  const getModalState = (id: number) => {
     const state = modalStateArray.find((modal) => modal.id === id)
     if (state) {
       return state.modalState
@@ -134,11 +133,13 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
 
   if (isLoading)
     return (
-      <Row className="justify-content-md-center">
-        <Col md={'auto'}>
-          <Spinner animation="border" variant="warning"></Spinner>
-        </Col>
-      </Row>
+      <StyledSpacer>
+        <Row className="justify-content-md-center">
+          <Col md={'auto'}>
+            <Spinner animation="border" variant="warning"></Spinner>
+          </Col>
+        </Row>
+      </StyledSpacer>
     )
 
   if (characters && characters.length <= 0) {

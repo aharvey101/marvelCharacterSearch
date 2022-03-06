@@ -17,7 +17,7 @@ const Home: NextPage = () => {
     `${ts}${process.env.privateApiKey}${process.env.publicApiKey}`
   ).toString()
 
-  const handleSearch = (searchParam) => {
+  const handleSearch = (searchParam: string) => {
     if (searchParam === '') {
       setCharacters(undefined)
       return
