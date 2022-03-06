@@ -23,7 +23,10 @@ export const Search: React.FC<ISearch> = ({ handleSearch }) => {
         <Col xs={2} lg={2} />
         <Col xs={6} lg={8} md="auto">
           <Form.Group>
-            <Form.Control onChange={handleUpdateState} />
+            <Form.Control
+              placeholder={'Starts with...'}
+              onChange={handleUpdateState}
+            />
           </Form.Group>
         </Col>
         <Col xs={3} lg={2}>

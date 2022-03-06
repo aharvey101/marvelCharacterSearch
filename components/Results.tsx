@@ -14,8 +14,9 @@ import styled from 'styled-components'
 import { ResultsEntity } from '../types'
 
 const StyledCard = styled(Card)`
-  margin: 2rem 0 2rem 0;
+  margin-top: 2rem;
   width: 18rem;
+  height: 90%;
 `
 
 const StyledSpacer = styled.div`
@@ -58,17 +59,17 @@ const CharacterCard: React.FC<ICharacterCard> = ({
 }) => {
   return (
     <Row>
-      <Col className="align-items-stretch">
+      <Col>
         <StyledCard>
           <Card.Img variant="top" src={image} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
+            {showMore ? (
+              <Button onClick={() => setShowModal(id)} variant="primary">
+                Show More
+              </Button>
+            ) : null}
           </Card.Body>
-          {showMore ? (
-            <Button onClick={() => setShowModal(id)} variant="primary">
-              Show More
-            </Button>
-          ) : null}
         </StyledCard>
       </Col>
     </Row>
