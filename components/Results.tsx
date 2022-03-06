@@ -14,9 +14,10 @@ import styled from 'styled-components'
 import { ResultsEntity } from '../types'
 
 const StyledCard = styled(Card)`
-  margin: 2rem;
+  margin: 2rem 0 2rem 0;
   width: 18rem;
 `
+
 const StyledSpacer = styled.div`
   margin: 2rem;
 `
@@ -57,7 +58,7 @@ const CharacterCard: React.FC<ICharacterCard> = ({
 }) => {
   return (
     <Row>
-      <Col>
+      <Col className="align-items-stretch">
         <StyledCard>
           <Card.Img variant="top" src={image} />
           <Card.Body>
@@ -134,10 +135,12 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
   if (isLoading)
     return (
       <StyledSpacer>
-        <Row className="justify-content-md-center">
-          <Col md={'auto'}>
+        <Row className="justify-content-center">
+          <Col />
+          <Col className="d-flex justify-content-center">
             <Spinner animation="border" variant="warning"></Spinner>
           </Col>
+          <Col />
         </Row>
       </StyledSpacer>
     )
@@ -145,14 +148,14 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
   if (characters && characters.length <= 0) {
     return (
       <StyledSpacer>
-        <Row className="justify-content-md-center">
-          <Col xs lg={2} />
-          <Col md={'auto'}>
+        <Row>
+          <Col />
+          <Col sm={12} md={8} className=" d-flex justify-content-center">
             <Alert variant="danger">
               <Alert.Heading>No character with that name</Alert.Heading>
             </Alert>
           </Col>
-          <Col xs lg={2} />
+          <Col />
         </Row>
       </StyledSpacer>
     )
@@ -160,7 +163,7 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
 
   if (characters) {
     const CharacterCards = characters.map((character) => (
-      <Col key={character.id}>
+      <Col key={character.id} className=" d-flex justify-content-center">
         <MyModal
           modalState={getModalState(character.id)}
           name={character.name}

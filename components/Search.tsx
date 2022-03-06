@@ -20,13 +20,13 @@ export const Search: React.FC<ISearch> = ({ handleSearch }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row className="justify-content-md-center">
-        <Col xs lg={2} />
+        <Col xs={2} lg={2} />
         <Col xs={6} lg={8} md="auto">
           <Form.Group>
             <Form.Control onChange={handleUpdateState} />
           </Form.Group>
         </Col>
-        <Col xs lg={2}>
+        <Col xs={3} lg={2}>
           <Button variant="primary" type="submit">
             Search
           </Button>
