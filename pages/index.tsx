@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       setCharacters(undefined)
       return
     }
-
+    setIsLoading(true)
     axios
       .get(url, {
         params: {
@@ -37,6 +37,7 @@ const Home: NextPage = () => {
       })
       .then((res: AxiosResponse) => {
         setCharacters(res.data.data.results)
+        setIsLoading(false)
       })
       .catch((error) => console.log(error))
   }
@@ -45,9 +46,7 @@ const Home: NextPage = () => {
     <Container>
       <Title />
       <Search handleSearch={handleSearch} />
-      <Row>
-        <Cards isLoading={isLoading} characters={characters} />
-      </Row>
+      <Cards isLoading={isLoading} characters={characters} />
     </Container>
   )
 }

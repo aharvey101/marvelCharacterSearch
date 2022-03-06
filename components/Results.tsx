@@ -14,8 +14,11 @@ import styled from 'styled-components'
 import { ResultsEntity } from '../types'
 
 const StyledCard = styled(Card)`
-  margin-top: 5rem;
+  margin: 2rem;
   width: 18rem;
+`
+const StyledSpacer = styled.div`
+  margin: 2rem;
 `
 
 interface ICards {
@@ -129,16 +132,28 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
     return false
   }
 
-  if (isLoading) return <Spinner animation="border" variant="warning"></Spinner>
-  if (characters && characters.length <= 0) {
+  if (isLoading)
     return (
-      <Row>
-        <Col>
-          <Alert variant="danger">
-            <Alert.Heading>No character with that name</Alert.Heading>
-          </Alert>
+      <Row className="justify-content-md-center">
+        <Col md={'auto'}>
+          <Spinner animation="border" variant="warning"></Spinner>
         </Col>
       </Row>
+    )
+
+  if (characters && characters.length <= 0) {
+    return (
+      <StyledSpacer>
+        <Row className="justify-content-md-center">
+          <Col xs lg={2} />
+          <Col md={'auto'}>
+            <Alert variant="danger">
+              <Alert.Heading>No character with that name</Alert.Heading>
+            </Alert>
+          </Col>
+          <Col xs lg={2} />
+        </Row>
+      </StyledSpacer>
     )
   }
 
