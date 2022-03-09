@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 
-interface ISearch {
+export interface ISearch {
   handleSearch: (searchParam: string) => void
 }
 
@@ -9,11 +9,13 @@ interface ISearch {
 export const Search: React.FC<ISearch> = ({ handleSearch }) => {
   const [character, setCharacter] = useState('')
 
-  const handleUpdateState = (e): void => {
-    setCharacter(e.target.value)
+  const handleUpdateState = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setCharacter(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     handleSearch(character)
   }

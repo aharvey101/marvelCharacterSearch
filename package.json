@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest -- --coverage",
+    "test-dev": "jest --coverage --watch --verbose --env=jsdom"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -20,14 +22,20 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",
+    "@types/enzyme": "^3.10.11",
+    "@types/jest": "^27.4.1",
     "@types/node": "17.0.21",
     "@types/react": "17.0.39",
+    "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.24",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "babel-plugin-styled-components": "^2.0.6",
     "dotenv": "^16.0.0",
+    "enzyme": "^3.11.0",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
     "jest": "^27.5.1",
+    "react-test-renderer": "^17.0.2",
     "typescript": "4.6.2"
   },
   "babel": {
