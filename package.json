@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest -- --coverage",
+    "test": "jest --env=jsdom --coverage",
     "test-dev": "jest --coverage --watch --verbose --env=jsdom"
   },
   "dependencies": {
@@ -90,5 +90,10 @@
         ]
       }
     }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "./**/*.tsx"
+    ]
   }
 }
