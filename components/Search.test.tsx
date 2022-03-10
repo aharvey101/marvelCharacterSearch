@@ -22,7 +22,6 @@ describe('<Search/>', () => {
   })
 
   it('Sets the character', () => {
-    wrapper = mount(<Search {...mockProps} />)
     wrapper.find('input').simulate('change', { target: { value: 'spiderman' } })
     wrapper.find('button').simulate('submit')
 

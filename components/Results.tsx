@@ -65,7 +65,11 @@ const CharacterCard: React.FC<ICharacterCard> = ({
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             {showMore ? (
-              <Button onClick={() => setShowModal(id)} variant="primary">
+              <Button
+                data-testid=""
+                onClick={() => setShowModal(id)}
+                variant="primary"
+              >
                 Show More
               </Button>
             ) : null}

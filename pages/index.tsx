@@ -10,7 +10,7 @@ import { Cards } from '../components/Results'
 const Home: NextPage = () => {
   const [characters, setCharacters] = useState<any>()
   const [isLoading, setIsLoading] = useState(false)
-  const url = process.env.marvelEndpoint || ''
+  const url: string = process.env.marvelEndpoint || ''
 
   const ts = Date.now()
   const hash = CryptoJS.MD5(
