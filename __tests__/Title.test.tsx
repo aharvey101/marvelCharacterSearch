@@ -1,5 +1,5 @@
 import Enzyme, { mount } from 'enzyme'
-import { Title } from './Title'
+import { Title } from '../components/Title'
 
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 

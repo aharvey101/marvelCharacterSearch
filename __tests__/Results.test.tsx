@@ -1,5 +1,5 @@
 import Enzyme, { mount } from 'enzyme'
-import { Cards } from './Results'
+import { Cards } from '../components/Results'
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 import { results } from '../resultsExample'
 Enzyme.configure({ adapter: new Adapter() })

@@ -1,5 +1,5 @@
 import Enzyme, { mount, ReactWrapper } from 'enzyme'
-import { Search } from './Search'
+import { Search } from '../components/Search'
 
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
