@@ -24,6 +24,7 @@ const Home: NextPage = () => {
   const handleSearch = async (searchParam: string) => {
     if (searchParam === '') {
       setCharacters([])
+      setNoCharacters(false)
       return
     }
     setIsLoading(true)
