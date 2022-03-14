@@ -3,7 +3,8 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 
 const StyledSuggestions = styled.ul`
-  border: 1px solid #999;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
   border-top-width: 0;
   list-style: none;
   margin-top: 0;
@@ -15,12 +16,12 @@ const StyledSuggestions = styled.ul`
     padding: 0.5rem;
   }
   li:hover {
-    background-color: #008f68;
-    color: #fae042;
+    background-color: #0d00ff;
+    color: #fff;
     cursor: pointer;
     font-weight: 700;
     li:not(:last-of-type) {
-      border-bottom: 1px solid #999;
+      border-bottom: 1px solid #ced4da;
     }
   }
 `
