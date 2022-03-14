@@ -7,6 +7,7 @@ Enzyme.configure({ adapter: new Adapter() })
 const mockProps = {
   characters: results.data.results,
   isLoading: false,
+  noCharacters: false,
 }
 
 describe('<Results/>', () => {
@@ -42,6 +43,7 @@ describe('<Results/>', () => {
   it('shows error when no character found', () => {
     mockProps.characters = []
     mockProps.isLoading = false
+    mockProps.noCharacters = true
     wrapper = mount(<Cards {...mockProps} />)
 
     expect(wrapper.find('Alert').exists()).toBe(true)

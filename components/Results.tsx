@@ -26,6 +26,7 @@ const StyledSpacer = styled.div`
 interface ICards {
   characters: ResultsEntity[]
   isLoading: boolean
+  noCharacters: boolean
 }
 
 interface ICharacterCard {
@@ -80,7 +81,11 @@ const CharacterCard: React.FC<ICharacterCard> = ({
   )
 }
 
-export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
+export const Cards: React.FC<ICards> = ({
+  characters,
+  isLoading,
+  noCharacters,
+}): any => {
   const [modalStateArray, setModalStateArray] = useState<IModalState[]>([])
 
   const MyModal: React.FC<ICustomModal> = ({
@@ -150,7 +155,7 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
       </StyledSpacer>
     )
 
-  if (characters && characters.length <= 0) {
+  if (noCharacters) {
     return (
       <StyledSpacer>
         <Row>
@@ -188,5 +193,4 @@ export const Cards: React.FC<ICards> = ({ characters, isLoading }): any => {
     ))
     return <Row>{CharacterCards}</Row>
   }
-  return null
 }
