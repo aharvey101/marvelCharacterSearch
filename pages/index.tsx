@@ -14,13 +14,6 @@ const Home: NextPage = () => {
   const [noCharacters, setNoCharacters] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState(false)
 
-  // Autocomplete:
-  // When the user inputs into the input box,
-  // it cancels the previous request and
-  // makes a new request for the new character.
-  // Get all the characters starting with that string,
-  // make an array of them and turn them into a suggestion box
-
   const handleSearch = async (searchParam: string) => {
     if (searchParam === '') {
       setCharacters([])
