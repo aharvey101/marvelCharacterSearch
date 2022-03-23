@@ -8,7 +8,10 @@ export const cancelRequest = () => {
   }
 }
 export default async function characterSearch(searchParam) {
-  const url: string = process.env.marvelEndpoint || ''
+  const url: string =
+    (process.env.PRODUCTION
+      ? process.env.marvelEndpoint
+      : 'http://localhost:3001') || ''
   const ts = Date.now()
   const hash = CryptoJS.MD5(
     `${ts}${process.env.privateApiKey}${process.env.publicApiKey}`
