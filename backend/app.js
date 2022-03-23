@@ -14,6 +14,7 @@ app.use(cookieParser())
 app.get('/', (req, res) => {
   // Normally with a database attached, you would search the the database and return what you want,
   // In this case we will just regex the results array
+  // for best results, try searching 'Capt' or 'Spi"
   const hero = req.query.nameStartsWith
   const regex = new RegExp(`^${hero}`)
   const regexedResults = results.data.results.filter((result) =>

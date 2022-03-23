@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "start:backend": "cd backend && npm run start",
     "lint": "next lint",
     "test": "jest --env=jsdom --coverage",
     "test-dev": "jest --coverage --watch --verbose --env=jsdom"
