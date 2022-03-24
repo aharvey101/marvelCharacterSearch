@@ -20,9 +20,8 @@ app.get('/', (req, res) => {
   const regexedResults = results.data.results.filter((result) =>
     result.name.match(regex)
   )
-  results.data.results === regexedResults
-
-  res.send(results)
+  const newResults = { data: { data: { results: regexedResults } } }
+  res.send(newResults)
 })
 
 module.exports = app
