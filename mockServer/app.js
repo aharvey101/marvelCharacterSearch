@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   const regexedResults = results.data.results.filter((result) =>
     result.name.match(regex)
   )
-  const newResults = { data: { data: { results: regexedResults } } }
+  const newResults = { data: { results: regexedResults } }
   res.send(newResults)
 })
 

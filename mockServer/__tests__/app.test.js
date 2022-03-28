@@ -7,7 +7,7 @@ describe('Server Tests', () => {
       nameStartsWith: 'Cap',
     })
     expect(res.statusCode).toEqual(200)
-    res.body.data.data.results.map((character) => {
+    res.body.data.results.map((character) => {
       expect(character.name === /^Thor/g).toBe(false)
     })
   })
